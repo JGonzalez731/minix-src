@@ -323,6 +323,8 @@ static void announce(void)
       "Copyright 2012, Vrije Universiteit, Amsterdam, The Netherlands\n",
       OS_RELEASE, OS_VERSION);
   printf("MINIX is open source software, see http://www.minix3.org\n");
+  /* Display custom start up message */
+  printf("#### Jacob was in the kernel ####");
 }
 
 /*===========================================================================*
