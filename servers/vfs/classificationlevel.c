@@ -92,7 +92,7 @@ int do_setclasslevel(void)
 		((S_IWGRP & vp->v_mode) && (vp->v_gid == fp->fp_effgid)) || 								//Group member w/ write priveleges
 		((S_IWOTH & vp->v_mode) && (vp->v_uid != fp->fp_effuid) && (vp->v_gid != fp->fp_effgid)))	//Other w/ write priveleges	
 	{
-		r = req_getclasslevel(vp->v_fs_e, vp->v_inode_nr, rlevel, &level);
+		r = req_setclasslevel(vp->v_fs_e, vp->v_inode_nr, rlevel, &level);
 	}
 	
 	//Load reply
