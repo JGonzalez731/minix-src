@@ -26,6 +26,58 @@
 
 
 /*===========================================================================*
+ *			req_getclasslevel					     *
+ *===========================================================================*/
+int req_getclasslevel(
+  endpoint_t fs_e,
+  ino_t inode_nr,
+  u16_t *classlevel
+)
+{
+  message m;
+  int r;
+
+  /* Fill in request message */
+  m.m_type = REQ_GETCLASSLEVEL;
+  m.REQ_INODE_NR = inode_nr;
+
+  /* Send/rec request */
+  r = fs_sendrec(fs_e, &m);
+
+  /* Copy back actual mode. */
+  *classlevel = m.RES_CLASSLEVEL;
+
+  return(r);
+}
+
+/*===========================================================================*
+ *			req_setclasslevel					     *
+ *===========================================================================*/
+int req_setclasslevel(
+  endpoint_t fs_e,
+  ino_t inode_nr,
+  u16_t rclasslevel,
+  u16_t *new_classlevel
+)
+{
+  message m;
+  int r;
+
+  /* Fill in request message */
+  m.m_type = REQ_SETCLASSLEVEL;
+  m.REQ_INODE_NR = inode_nr;
+  m.REQ_CLASSLEVEL = rclasslevel;
+
+  /* Send/rec request */
+  r = fs_sendrec(fs_e, &m);
+
+  /* Copy back actual mode. */
+  *new_classlevel = m.RES_CLASSLEVEL;
+
+  return(r);
+}
+
+/*===========================================================================*
  *			req_breadwrite					     *
  *===========================================================================*/
 int req_breadwrite(
