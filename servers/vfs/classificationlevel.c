@@ -23,7 +23,7 @@ int do_getclasslevel(void)
 	FILE * file;
 	
 	//Open file
-	if(file = fopen(job_m_in.REQ_FILENAME, "r") == NULL) return(EINVAL);
+	if((file = fopen(job_m_in.REQ_FILENAME, "r")) == NULL) return(EINVAL);
 	rfd = fileno(file);
 	
 	//Load inode
@@ -53,7 +53,7 @@ int do_setclasslevel(void)
 	struct vnode *vp;
 	
 	//Open file
-	if(file = fopen(job_m_in.REQ_FILENAME, "r") == NULL) return(EINVAL);
+	if((file = fopen(job_m_in.REQ_FILENAME, "r")) == NULL) return(EINVAL);
 	rfd = fileno(file);
 	
 	//Load vnode
