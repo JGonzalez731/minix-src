@@ -39,8 +39,7 @@
 #define REQ_UID			m9_s4
 #define REQ_FD			m1_i1
 #define REQ_CLASSLEVEL	m1_i2
-#define REQ_INODE_NUM	m1_i2
-#define REQ_FILENAME	m1_p1
+#define REQ_INODE_NUM	m1_i3
 
 
 /* VFS/FS reply fields */
