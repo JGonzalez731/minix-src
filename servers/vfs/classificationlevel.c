@@ -51,6 +51,7 @@ int do_setclasslevel(void)
 	int level, rlevel;
 	struct filp *flp;
 	struct vnode *vp;
+	FILE * file;
 	
 	//Open file
 	if((file = fopen(job_m_in.REQ_FILENAME, "r")) == NULL) return(EINVAL);
