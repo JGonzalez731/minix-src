@@ -437,6 +437,10 @@ extern	 int optreset;		/* getopt(3) external variable */
 extern	 char *suboptarg;	/* getsubopt(3) external variable */
 #endif
 
+/* ADD */
+int set_access_level(int, int);
+int get_access_level(int);
+
 __END_DECLS
 
 #ifdef __minix

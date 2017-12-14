@@ -66,6 +66,10 @@
 #define GETMCONTEXT       67
 #define SETMCONTEXT       68
 
+/* ADD */
+#define SETACCESSLEVEL    69
+#define GETACCESSLEVEL    70
+
 /* Posix signal handling. */
 #define SIGACTION	  71
 #define SIGSUSPEND	  72

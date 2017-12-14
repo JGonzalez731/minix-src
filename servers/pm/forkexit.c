@@ -109,6 +109,9 @@ int do_fork()
   for (i = 0; i < NR_ITIMERS; i++)
 	rmc->mp_interval[i] = 0;	/* reset timer intervals */
 
+  /* Initialize access level (ADD) */
+  rmc->mp_access_level = 0;
+
   /* Find a free pid for the child and put it in the table. */
   new_pid = get_free_pid();
   rmc->mp_pid = new_pid;	/* assign pid to child */
@@ -201,6 +204,9 @@ int do_srv_fork()
   rmc->mp_effgid = (uid_t) m_in.m1_i2;
   for (i = 0; i < NR_ITIMERS; i++)
 	rmc->mp_interval[i] = 0;	/* reset timer intervals */
+
+  /* Initialize access level (ADD) */
+  rmc->mp_access_level = 0;
 
   /* Find a free pid for the child and put it in the table. */
   new_pid = get_free_pid();

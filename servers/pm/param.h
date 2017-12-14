@@ -36,6 +36,7 @@
 #define sysuname_field	m1_i2
 #define sysuname_len	m1_i3
 #define sysuname_value	m1_p1
+#define access_level    m1_i2 /* ADD */
 
 /* The following names are synonyms for the variables in a reply message. */
 #define reply_res	m_type
