@@ -31,7 +31,7 @@
 int req_getclasslevel(
   endpoint_t fs_e,
   ino_t inode_nr,
-  u16_t *classlevel
+  int *classlevel
 )
 {
   message m;
@@ -44,7 +44,7 @@ int req_getclasslevel(
   /* Send/rec request */
   r = fs_sendrec(fs_e, &m);
 
-  /* Copy back actual mode. */
+  /* Copy back actual class level. */
   *classlevel = m.RES_CLASSLEVEL;
 
   return(r);
@@ -56,8 +56,8 @@ int req_getclasslevel(
 int req_setclasslevel(
   endpoint_t fs_e,
   ino_t inode_nr,
-  u16_t rclasslevel,
-  u16_t *new_classlevel
+  int rclasslevel,
+  int *new_classlevel
 )
 {
   message m;
@@ -71,7 +71,7 @@ int req_setclasslevel(
   /* Send/rec request */
   r = fs_sendrec(fs_e, &m);
 
-  /* Copy back actual mode. */
+  /* Copy back actual class level. */
   *new_classlevel = m.RES_CLASSLEVEL;
 
   return(r);

@@ -221,9 +221,9 @@ int rw_pipe(int rw_flag, endpoint_t usr, struct filp *f, char *buf,
 	size_t req_size);
 
 /* request.c */
-int req_getclasslevel(endpoint_t fs_e, ino_t inode_nr, u16_t *classlevel);
-int req_setclasslevel(endpoint_t fs_e, ino_t inode_nr, u16_t rclasslevel,
-	u16_t *new_classlevel);
+int req_getclasslevel(endpoint_t fs_e, ino_t inode_nr, int *classlevel);
+int req_setclasslevel(endpoint_t fs_e, ino_t inode_nr, int rclasslevel,
+	int *new_classlevel);
 int req_breadwrite(endpoint_t fs_e, endpoint_t user_e, dev_t dev, u64_t pos,
 	unsigned int num_of_bytes, char *user_addr, int rw_flag,
 	u64_t *new_posp, unsigned int *cum_iop);
