@@ -37,7 +37,8 @@
 #define REQ_TRC_START_LO	m9_l3
 #define REQ_UCRED_SIZE		m9_s4 
 #define REQ_UID			m9_s4
-#define REQ_CLASSLEVEL	m1_i1
+#define REQ_FD			m1_i1
+#define REQ_CLASSLEVEL	m1_i2
 #define REQ_INODE_NUM	m1_i2
 #define REQ_FILENAME	m1_p1
 

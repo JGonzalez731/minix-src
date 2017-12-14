@@ -20,13 +20,9 @@ int do_getclasslevel(void)
 	int level;
 	struct filp *flp;
 	struct vnode *vp;
-	FILE * file;
-	
-	//Open file
-	if((file = fopen(job_m_in.REQ_FILENAME, "r")) == NULL) return(EINVAL);
-	rfd = fileno(file);
 	
 	//Load inode
+	rfd = job_m_in.REQ_FD;
 	if ((flp = get_filp(rfd, VNODE_READ)) == NULL) return(err_code);
 	vp = flp->filp_vno;
 	dup_vnode(vp);
@@ -51,13 +47,9 @@ int do_setclasslevel(void)
 	int level, rlevel;
 	struct filp *flp;
 	struct vnode *vp;
-	FILE * file;
-	
-	//Open file
-	if((file = fopen(job_m_in.REQ_FILENAME, "r")) == NULL) return(EINVAL);
-	rfd = fileno(file);
 	
 	//Load vnode
+	rfd = job_m_in.REQ_FD;
 	if ((flp = get_filp(rfd, VNODE_WRITE)) == NULL) return(err_code);
 	vp = flp->filp_vno;
 	dup_vnode(vp);
