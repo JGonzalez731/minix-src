@@ -11,7 +11,7 @@ int fs_getclasslevel()
 	register struct inode *rip;
 
 	/* Temporarily open the file. */
-	if( (rip = get_inode(fs_dev, (ino_t) fs_m_in.REQ_INODE_NR)) == NULL)
+	if( (rip = get_inode(fs_dev, (ino_t) fs_m_in.REQ_INODE_NUM)) == NULL)
 		return(EINVAL);
 
 	/* Update caller on classification level */
@@ -29,7 +29,7 @@ int fs_setclasslevel()
 	register struct inode *rip;
 
 	/* Temporarily open the file. */
-	if( (rip = get_inode(fs_dev, (ino_t) fs_m_in.REQ_INODE_NR)) == NULL)
+	if( (rip = get_inode(fs_dev, (ino_t) fs_m_in.REQ_INODE_NUM)) == NULL)
 		return(EINVAL);
 
 	/* Update classification level */	

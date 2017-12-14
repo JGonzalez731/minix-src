@@ -66,7 +66,7 @@ int req_setclasslevel(
   /* Fill in request message */
   m.m_type = REQ_SETCLASSLEVEL;
   m.REQ_INODE_NR = inode_nr;
-  m.REQ_CLASSLEVEL = rclasslevel;
+  m.REQ_LEVEL = rclasslevel;
 
   /* Send/rec request */
   r = fs_sendrec(fs_e, &m);
