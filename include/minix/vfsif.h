@@ -37,7 +37,8 @@
 #define REQ_TRC_START_LO	m9_l3
 #define REQ_UCRED_SIZE		m9_s4 
 #define REQ_UID			m9_s4
-#define REQ_CLASSLEVEL m9_s3
+#define REQ_CLASSLEVEL	m9_l3
+#define REQ_FD		   	m9_l2
 
 
 /* VFS/FS reply fields */
@@ -54,7 +55,7 @@
 #define RES_SYMLOOP		m9_s3
 #define RES_UID			m9_s4
 #define RES_CONREQS		m9_s3
-#define RES_CLASSLEVEL	m9_s2
+#define RES_CLASSLEVEL	m9_l4
 
 /* VFS/FS flags */
 #define REQ_RDONLY		001

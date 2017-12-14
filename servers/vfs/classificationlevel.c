@@ -21,6 +21,7 @@ int do_getclasslevel(void)
 	struct vnode *vp;
 	
 	//Load inode
+	rfd = job_m_in.REQ_FD;
 	if ((flp = get_filp(rfd, VNODE_READ)) == NULL) return(err_code);
 	vp = flp->filp_vno;
 	dup_vnode(vp);
@@ -47,11 +48,13 @@ int do_setclasslevel(void)
 	struct vnode *vp;
 	
 	//Load vnode
+	rfd = job_m_in.REQ_FD;
 	if ((flp = get_filp(rfd, VNODE_WRITE)) == NULL) return(err_code);
 	vp = flp->filp_vno;
 	dup_vnode(vp);
 	
-	//Enforce access model
+	//Send request
+	rlevel = job_m_in.REQ_CLASSLEVEL;
 	r = req_setclasslevel(vp->v_fs_e, vp->v_inode_nr, rlevel, &level);
 
 	//Load reply
