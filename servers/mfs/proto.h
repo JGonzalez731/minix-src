@@ -13,6 +13,9 @@ struct filp;
 struct inode;
 struct super_block;
 
+/* classificationlevel.c */
+int fs_getclasslevel(void);
+int fs_setclasslevel(void);
 
 /* cache.c */
 zone_t alloc_zone(dev_t dev, zone_t z);

@@ -37,6 +37,10 @@
 #define REQ_TRC_START_LO	m9_l3
 #define REQ_UCRED_SIZE		m9_s4 
 #define REQ_UID			m9_s4
+#define REQ_FD			m1_i1
+#define REQ_CLASSLEVEL	m1_i2
+#define REQ_INODE_NUM	m1_i2
+#define REQ_FILENAME	m1_p1
 
 
 /* VFS/FS reply fields */
@@ -53,6 +57,7 @@
 #define RES_SYMLOOP		m9_s3
 #define RES_UID			m9_s4
 #define RES_CONREQS		m9_s3
+#define RES_CLASSLEVEL	m1_i3
 
 /* VFS/FS flags */
 #define REQ_RDONLY		001
@@ -92,7 +97,8 @@ typedef struct {
 } vfs_ucred_old_t;
 
 /* Request numbers */
-#define REQ_GETNODE	(VFS_BASE + 1)	/* Should be removed */
+#define REQ_GETCLASSLEVEL	(VFS_BASE + 0)
+#define REQ_SETCLASSLEVEL	(VFS_BASE + 1)
 #define REQ_PUTNODE	(VFS_BASE + 2)
 #define REQ_SLINK	(VFS_BASE + 3)
 #define REQ_FTRUNC	(VFS_BASE + 4)
