@@ -895,6 +895,12 @@ static void service_pm()
   int r, slot;
 
   switch (job_call_nr) {
+	case 56:
+	{
+		printf("REACHED VFS");
+	}
+	break;
+	  
     case PM_SETUID:
 	{
 		endpoint_t proc_e;

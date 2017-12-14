@@ -7,6 +7,10 @@ struct memory;
 
 #include <timers.h>
 
+/* accesslevel.c (ADD)*/
+int do_setaccesslevel(void);
+int do_getaccesslevel(void);
+
 /* alarm.c */
 int do_alarm(void);
 int do_itimer(void);
