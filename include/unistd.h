@@ -440,6 +440,8 @@ extern	 char *suboptarg;	/* getsubopt(3) external variable */
 /* ADD */
 int set_access_level(int, int);
 int get_access_level(int);
+int get_classification(const char *);
+int set_classification(const char *, int);
 
 __END_DECLS
 
