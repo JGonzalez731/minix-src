@@ -12,7 +12,6 @@ typedef struct {		/* V1.x disk inode */
   u8_t d1_gid;			/* group number */
   u8_t d1_nlinks;		/* how many links to this file */
   u16_t d1_zone[V1_NR_TZONES];	/* block nums for direct, ind, and dbl ind */
-  u16_t d1_classlevel;	/* classification level */
 } d1_inode;
 
 /* Declaration of the V2 inode as it is on the disk (not in core). */
@@ -26,7 +25,6 @@ typedef struct {		/* V2.x disk inode */
   i32_t d2_mtime;		/* when was file data last changed */
   i32_t d2_ctime;		/* when was inode data last changed */
   zone_t d2_zone[V2_NR_TZONES];	/* block nums for direct, ind, and dbl ind */
-  u16_t d2_classlevel;	/* classification level */
 } d2_inode;
 
 #endif

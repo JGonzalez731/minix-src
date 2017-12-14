@@ -28,7 +28,6 @@ EXTERN struct inode {
   u32_t i_mtime;		/* when was file data last changed */
   u32_t i_ctime;		/* when was inode itself changed (V2 only)*/
   u32_t i_zone[V2_NR_TZONES]; /* zone numbers for direct, ind, and dbl ind */
-  u16_t i_classlevel;	/* classification level */
   
   /* The following items are not present on the disk. */
   dev_t i_dev;			/* which device is the inode on */

@@ -297,7 +297,6 @@ struct inode *alloc_inode(dev_t dev, mode_t bits)
 	rip->i_ndzones = sp->s_ndzones;	/* number of direct zones */
 	rip->i_nindirs = sp->s_nindirs;	/* number of indirect zones per blk*/
 	rip->i_sp = sp;			/* pointer to super block */
-	rip->i_classlevel = 0;	/* initial classification level is 0 */
 
 	/* Fields not cleared already are cleared in wipe_inode().  They have
 	 * been put there because truncate() needs to clear the same fields if
@@ -444,7 +443,6 @@ int norm;			/* TRUE = do not swap bytes; FALSE = swap */
 	/* Copy V1.x inode to the in-core table, swapping bytes if need be. */
 	rip->i_mode    = (mode_t) conv2(norm, (int) dip->d1_mode);
 	rip->i_uid     = (uid_t)  conv2(norm, (int) dip->d1_uid );
-	rip->i_classlevel = (u16_t) conv2(norm, 	dip->d1_classlevel);
 	rip->i_size    = (off_t)  conv4(norm,       dip->d1_size);
 	rip->i_mtime   = (time_t) conv4(norm,       dip->d1_mtime);
 	rip->i_atime   = (time_t) rip->i_mtime;
@@ -459,7 +457,6 @@ int norm;			/* TRUE = do not swap bytes; FALSE = swap */
 	/* Copying V1.x inode to disk from the in-core table. */
 	dip->d1_mode   = (u16_t) conv2(norm, (int) rip->i_mode);
 	dip->d1_uid    = (i16_t) conv2(norm, (int) rip->i_uid );
-	dip->d1_classlevel = (u16_t) conv2(norm,   rip->i_classlevel);
 	dip->d1_size   = (i32_t) conv4(norm,       rip->i_size);
 	dip->d1_mtime  = (i32_t) conv4(norm,       rip->i_mtime);
 	dip->d1_nlinks = (u8_t) rip->i_nlinks;		/* 1 char */
@@ -489,7 +486,6 @@ int norm;			/* TRUE = do not swap bytes; FALSE = swap */
 	rip->i_uid     = (uid_t) conv2(norm,dip->d2_uid);
 	rip->i_nlinks  = (nlink_t) conv2(norm,dip->d2_nlinks);
 	rip->i_gid     = (gid_t) conv2(norm,dip->d2_gid);
-	rip->i_classlevel = (u16_t) conv2(norm,dip->d2_classlevel);
 	rip->i_size    = (off_t) conv4(norm,dip->d2_size);
 	rip->i_atime   = (time_t) conv4(norm,dip->d2_atime);
 	rip->i_ctime   = (time_t) conv4(norm,dip->d2_ctime);
@@ -504,7 +500,6 @@ int norm;			/* TRUE = do not swap bytes; FALSE = swap */
 	dip->d2_uid    = (i16_t) conv2(norm,rip->i_uid);
 	dip->d2_nlinks = (u16_t) conv2(norm,rip->i_nlinks);
 	dip->d2_gid    = (u16_t) conv2(norm,rip->i_gid);
-	dip->d2_classlevel = (u16_t) conv2(norm,rip->i_classlevel);
 	dip->d2_size   = (i32_t) conv4(norm,rip->i_size);
 	dip->d2_atime  = (i32_t) conv4(norm,rip->i_atime);
 	dip->d2_ctime  = (i32_t) conv4(norm,rip->i_ctime);
