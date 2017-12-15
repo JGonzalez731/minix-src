@@ -1,0 +1,35 @@
+
+.TH GET_CLASSIFICATION 2 "December 10, 2017" "If you are reading this it's time to d-d-d-du-duel!"
+
+.SH NAME
+get_classification \- get the classification level of a file
+
+.SH SYNOPSIS
+.nf
+.ft B
+#include <unistd.h>
+
+int get_classification(const char * \fIfilename\fP)
+.ft R
+.fi
+
+.SH DESCRIPTION
+.B Get_classification
+returns the classification level of a file, specified by the file path
+.IR filename .
+If the file does not exist or the calling process does not have the appropriate permissions
+to edit the file, -1 is returned.
+
+.SH ERRORS
+.B Get_classification
+will fail if any of the following occur:
+.TP 15
+[1]
+No file can be found corresponding to the file path \fIfilename\fP.
+
+.TP 15
+[2]
+The calling process does not have read permissions for the file specified by \fIfilename\fP.
+
+.SH "SEE ALSO"
+.BR set_classification (2).

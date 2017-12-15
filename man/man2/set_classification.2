@@ -1,0 +1,39 @@
+
+.TH SET_CLASSIFICATION 2 "December 10, 2017" "If you are reading this it's time to d-d-d-du-duel!"
+
+.SH NAME
+set_classification \- set the classification level of a file
+
+.SH SYNOPSIS
+.nf
+.ft B
+#include <unistd.h>
+
+int set_classification(const char * \fIfilename\fP, int \fInew_level\fP)
+.ft R
+.fi
+
+.SH DESCRIPTION
+.B Set_classification
+sets the classification level of a file, specified by the file path
+.IR filename .
+
+.SH RETURN VALUE
+Upon successful completion, the new classification level of the file specified by
+.IR filename
+is returned.
+Otherwise, a value of -1 is returned.
+
+.SH ERRORS
+.B Set_classification
+will fail if any of the following occur:
+.TP 15
+[1]
+No file can be found corresponding to the file path \fIfilename\fP.
+
+.TP 15
+[2]
+The calling process does not have write permissions for the file specified by \fIfilename\fP.
+
+.SH "SEE ALSO"
+.BR get_classification (2).
